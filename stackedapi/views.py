@@ -21,7 +21,7 @@ class EmployeesListApiView(APIView):
         serailizer = EmployeesSerializer(data=data)
         if serailizer.is_valid():
             serailizer.save()
-            return Response("serializer.data, status=status.HTTP_201_CREATED")
+            return Response(serailizer.data, status=status.HTTP_201_CREATED)
         return Response(serailizer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class EmployeeDetailAPIView(APIView):
